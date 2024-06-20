@@ -3,6 +3,8 @@ import {
   UseFormRegister,
   Path,
   FieldValues,
+  Merge,
+  FieldErrorsImpl,
 } from "react-hook-form";
 
 interface TextInputProps<T extends FieldValues> {
@@ -10,7 +12,7 @@ interface TextInputProps<T extends FieldValues> {
   label: string;
   type: string;
   register: UseFormRegister<T>;
-  errors?: FieldError;
+  errors?: FieldError | Merge<FieldError, FieldErrorsImpl<T>>;
 }
 
 const TextInput = <T extends FieldValues>({
@@ -32,7 +34,9 @@ const TextInput = <T extends FieldValues>({
         errors ? "border-red-500" : "border-gray-300"
       } rounded`}
     />
-    {errors && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+    {errors && (
+      <p className="text-red-500 text-sm mt-1">{String(errors.message)}</p>
+    )}
   </div>
 );
 
