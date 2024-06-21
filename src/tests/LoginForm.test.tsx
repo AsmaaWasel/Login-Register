@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom"; // Ensure this import is present
+import "@testing-library/jest-dom";
 import LoginForm from "../ui/LoginForm";
 
 test("renders LoginForm and performs user interaction", () => {
@@ -21,6 +21,4 @@ test("renders LoginForm and performs user interaction", () => {
   fireEvent.change(emailInput, { target: { value: "test@example.com" } });
   fireEvent.change(passwordInput, { target: { value: "password123" } });
   fireEvent.click(submitButton);
-
-  // You can add assertions to check form submission and validation behavior
 });

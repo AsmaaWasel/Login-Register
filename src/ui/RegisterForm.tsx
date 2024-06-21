@@ -22,6 +22,7 @@ const RegisterForm: React.FC = () => {
         label="Username"
         type="text"
         register={register}
+        validation={{ required: "Username is required" }} // Add validation rules
         errors={errors.username}
       />
       <TextInput<RegisterFormFields>
@@ -29,6 +30,7 @@ const RegisterForm: React.FC = () => {
         label="Email"
         type="email"
         register={register}
+        validation={{ required: "Email is required" }} // Add validation rules
         errors={errors.email}
       />
       <TextInput<RegisterFormFields>
@@ -36,6 +38,7 @@ const RegisterForm: React.FC = () => {
         label="Password"
         type="password"
         register={register}
+        validation={{ required: "Password is required" }} // Add validation rules
         errors={errors.password}
       />
     </FormWrapper>

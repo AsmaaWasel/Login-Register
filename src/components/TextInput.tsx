@@ -12,6 +12,7 @@ interface TextInputProps<T extends FieldValues> {
   label: string;
   type: string;
   register: UseFormRegister<T>;
+  validation?: object;
   errors?: FieldError | Merge<FieldError, FieldErrorsImpl<T>>;
 }
 
@@ -20,6 +21,7 @@ const TextInput = <T extends FieldValues>({
   label,
   type,
   register,
+  validation,
   errors,
 }: TextInputProps<T>) => (
   <div className="mb-4">
@@ -29,7 +31,7 @@ const TextInput = <T extends FieldValues>({
     <input
       id={id}
       type={type}
-      {...register(id)}
+      {...register(id, validation)}
       className={`w-full p-2 border ${
         errors ? "border-red-500" : "border-gray-300"
       } rounded`}
